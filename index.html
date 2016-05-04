@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Generator</title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>body{background:linear-gradient(27deg,#151515 5px,transparent 5px) 0 5px,linear-gradient(207deg,#151515 5px,transparent 5px) 10px 0,linear-gradient(27deg,#222 5px,transparent 5px) 0 10px,linear-gradient(207deg,#222 5px,transparent 5px) 10px 5px,linear-gradient(90deg,#1b1b1b 10px,transparent 10px),linear-gradient(#1d1d1d 25%,#1a1a1a 25%,#1a1a1a 50%,transparent 50%,transparent 75%,#242424 75%,#242424);background-color:#131313;background-size:20px 20px}.vertical-center{min-height:100%;min-height:100vh;display:flex;align-items:center}[type="checkbox"]:not(:checked),[type="checkbox"]:checked{position:absolute;left:-9999px}[type="checkbox"]:not(:checked)+label,[type="checkbox"]:checked+label{position:relative;padding-left:25px;cursor:pointer}[type="checkbox"]:not(:checked)+label:before,[type="checkbox"]:checked+label:before{content:'';position:absolute;left:0;top:2px;width:17px;height:17px;border:1px solid #aaa;background:#f8f8f8;border-radius:3px;box-shadow:inset 0 1px 3px rgba(0,0,0,.3)}[type="checkbox"]:not(:checked)+label:after,[type="checkbox"]:checked+label:after{content:'✔';position:absolute;top:3px;left:4px;font-size:18px;line-height:.8;color:#0074d9;transition:all .2s}[type="checkbox"]:not(:checked)+label:after{opacity:0;transform:scale(0)}[type="checkbox"]:checked+label:after{opacity:1;transform:scale(1)}[type="checkbox"]:checked:focus+label:before,[type="checkbox"]:not(:checked):focus+label:before{border:1px dotted blue}label:hover:before{border:1px solid #4778d9!important}.jumbotron{text-align:center;padding:25px}</style>
+</head>
+<body>
+<div class="vertical-center">
+    <div class="container">
+        <div class="jumbotron">
+            <form action="">
+                <fieldset class="form-group">
+                    <input type="text" class="form-control" id="pass" placeholder="Password" size="64">
+                </fieldset>
+                <fieldset class="form-group">
+                    <input type="number" class="form-control" id="length" placeholder="Length" min="1" value="16">
+                </fieldset>
+                <fieldset class="form-group">
+                    <input type="checkbox" id="uppercase" />
+                    <label for="uppercase">Uppercase letters</label>
+                    <input type="checkbox" id="downcase" checked />
+                    <label for="downcase">Downcase letters</label>
+                </fieldset>
+                <fieldset class="form-group">
+                    <input type="checkbox" id="numbers" />
+                    <label for="numbers">Numbers</label>
+                    <input type="checkbox" id="special" />
+                    <label for="special">Special letters</label>
+                </fieldset>
+                
+                <button type="button" class="btn btn-primary btn-block" onclick="GeneratePassword()">Generate Password</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>function GeneratePassword(){var b=document.getElementById("length").value;var a="";var c="";if(document.getElementById("uppercase").checked){c+="QWERTYUIOPLKJHGFDSAZXCVBNM"}if(document.getElementById("downcase").checked){c+="qwertyuioplkjhgfdsazxcvbnm"}if(document.getElementById("numbers").checked){c+="1234567890"}if(document.getElementById("special").checked){c+="!@#$%^&*.,"}for(i=0;i<b;i++){a+=c.charAt(Math.floor(Math.random()*c.length))}document.getElementById("pass").value=a;console.log(a)};</script>
+</body>
+</html>
